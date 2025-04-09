@@ -24,6 +24,11 @@ body {
   100% { background: linear-gradient(to right, #007bff, #00adb5); }
 }
 
+body {
+  animation: gradientShift 10s infinite alternate ease-in-out;
+}
+
+
 /* Navbar */
 .topnav {
   display: flex;
