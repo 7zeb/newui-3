@@ -1,2 +1,2 @@
-# 7Zeb New UI Testing
-This is the new UI testing for the 7Zeb Website!
+# Project NewUI
+Learn more in the About page.
