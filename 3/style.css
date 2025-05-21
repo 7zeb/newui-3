@@ -1,0 +1,450 @@
+/* The offical NewUI 3 CSS file, you CAN NOT copy this without the proper permission*/
+
+/* import segoe ui font*/
+@import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
+
+/* variables for light mode*/
+:root {
+  --section-primary: #34b3f1;
+  --section-secondary: #6bdfdf;
+  --section-accent: #f1f8ff;
+  --section-gradient1: #b7eaff;
+  --section-gradient2: #a2eee7;
+  --section-gradient3: #7ad5f7;
+  --section-gradient4: #49e1c6;
+  --section-bubble: rgba(255,255,255,0.45);
+  --section-card-shadow: 0 8px 24px rgba(52,179,241,0.14), 0 1.5px 6px rgba(0,0,0,0.06);
+  --section-glass-blur: blur(13px);
+  --section-radius: 22px;
+  --section-font: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
+  --section-text-main: #13334c;
+  --section-text-sub: #176b8a;
+  --section-text-muted: #164d69;
+  --section-link: #1b5c87;
+  --section-link-hover: #34b3f1;
+  --section-bg: linear-gradient(
+    135deg,
+    var(--section-gradient1) 0%,
+    #7fd1e8 30%,
+    var(--section-gradient2) 60%,
+    var(--section-gradient4) 100%
+  );
+  --section-bg-pattern:
+    radial-gradient(circle at 75% 20%, #ffffff33 0%, #b7eaff00 65%),
+    radial-gradient(circle at 20% 80%, #a2eee755 0%, #7ad5f700 65%),
+    radial-gradient(circle at 50% 50%, #ffffff22 0%, #49e1c600 80%);
+  --section-bg-blend: lighten;
+  --section-card-bg: linear-gradient(120deg, #f3fdff 85%, #e8fcfc 100%);
+  --section-list-bg: linear-gradient(90deg, #e5f7ffcc 60%, #f1f8ff99 100%);
+  --section-ul-bullet: linear-gradient(135deg, #6bdfdf 30%, #34b3f1 100%);
+  --section-ol-number: #34b3f1;
+  --section-table-bg: linear-gradient(100deg, #f6fdff 90%, #eafaff 100%);
+  --section-table-th-bg: linear-gradient(90deg, #eafaff 60%, #b7eaff 100%);
+  --section-table-th-border: #a2eee7;
+  --section-table-td-border: #e8fcfc88;
+  --section-alert-bg: linear-gradient(90deg, #ffe 80%, #eafaff 100%);
+  --section-alert-border: #34b3f1;
+  --section-code-bg: linear-gradient(120deg, #eafaff 80%, #f7ffff 100%);
+  --section-code-border: #b7eaff88;
+  --section-hr-bg: linear-gradient(90deg, #b7eaff 0%, #34b3f1 50%, #6bdfdf 100%);
+}
+
+@media (prefers-color-scheme: light) { /* sets it to light mode by defualt*/
+  /* dark mode variables*/
+  :root {
+    --section-primary: #3bc6ff;
+    --section-secondary: #5ae0e0;
+    --section-accent: #14202b;
+    --section-gradient1: #193549;
+    --section-gradient2: #0e626d;
+    --section-gradient3: #226c8b;
+    --section-gradient4: #00756c;
+    --section-bubble: rgba(255,255,255,0.08);
+    --section-card-shadow: 0 8px 24px rgba(0,0,0,0.44), 0 1.5px 6px rgba(52,179,241,0.05);
+    --section-glass-blur: blur(13px);
+    --section-radius: 22px;
+    --section-font: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
+    --section-text-main: #e3f8ff;
+    --section-text-sub: #81e6ff;
+    --section-text-muted: #b7eaff;
+    --section-link: #5ae0e0;
+    --section-link-hover: #3bc6ff;
+    --section-bg: linear-gradient(
+      135deg,
+      var(--section-gradient1) 0%,
+      #1b5c7a 25%,
+      var(--section-gradient2) 55%,
+      var(--section-gradient4) 100%
+    );
+    --section-bg-pattern:
+      radial-gradient(circle at 75% 20%, #6eddf944 0%, #19354900 65%),
+      radial-gradient(circle at 20% 80%, #0e626d55 0%, #00756c00 65%),
+      radial-gradient(circle at 50% 50%, #fff2 0%, #00587000 80%);
+    --section-bg-blend: lighten;
+    --section-card-bg: linear-gradient(120deg, #172c3d 85%, #223d46 100%);
+    --section-list-bg: linear-gradient(90deg, #193549cc 60%, #0e626d99 100%);
+    --section-ul-bullet: linear-gradient(135deg, #5ae0e0 30%, #3bc6ff 100%);
+    --section-ol-number: #3bc6ff;
+    --section-table-bg: linear-gradient(100deg, #11202c 90%, #0e626d 100%);
+    --section-table-th-bg: linear-gradient(90deg, #193549 60%, #0e626d 100%);
+    --section-table-th-border: #226c8b;
+    --section-table-td-border: #19354988;
+    --section-alert-bg: linear-gradient(90deg, #193549 80%, #1b5c7a 100%);
+    --section-alert-border: #3bc6ff;
+    --section-code-bg: linear-gradient(120deg, #0e1f2a 80%, #0e626d 100%);
+    --section-code-border: #0e626d88;
+    --section-hr-bg: linear-gradient(90deg, #193549 0%, #3bc6ff 50%, #5ae0e0 100%);
+  }
+}
+
+/* the sections */
+section {
+  box-sizing: border-box;
+  font-family: var(--section-font);
+  color: var(--section-text-main);
+  background: var(--section-bg);
+  background-image: var(--section-bg-pattern);
+  background-blend-mode: var(--section-bg-blend);
+  margin: 2em auto;
+  padding: 2.3em 1.8em;
+  border-radius: var(--section-radius);
+  box-shadow: var(--section-card-shadow);
+  max-width: 1100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Section Headings */
+section h1, section h2, section h3, section h4, section h5, section h6 {
+  color: var(--section-primary);
+  text-shadow: 0 2px 12px #fff7, 0 1px 4px #6bdfdf88;
+  font-weight: 700;
+  letter-spacing: 0.013em;
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+}
+section h1 { font-size: 2.5rem; }
+section h2 { font-size: 1.85rem; }
+section h3 { font-size: 1.5rem; }
+section h4 { font-size: 1.28rem; }
+section h5 { font-size: 1.1rem; }
+section h6 { font-size: 1rem; }
+
+/* Section Paragraphs */
+section p {
+  line-height: 1.62;
+  color: var(--section-text-sub);
+  margin-bottom: 1.25em;
+  font-size: 1.11em;
+}
+
+/* cards inside of sections */
+section .aero-glass, section .card, section .project-card {
+  background: var(--section-card-bg);
+  box-shadow: var(--section-card-shadow);
+  border-radius: var(--section-radius);
+  backdrop-filter: var(--section-glass-blur);
+  border: 1.5px solid #ffffff44;
+  position: relative;
+  overflow: hidden;
+  padding: 2em 1.4em 1.2em 1.4em;
+  margin-bottom: 2em;
+  transition: transform 0.14s, box-shadow 0.16s;
+}
+section .aero-glass:hover, section .card:hover, section .project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 12px 50px #34b3f1bb;
+}
+
+/* buttons */
+section .aero-btn,
+section button,
+section input[type="button"],
+section input[type="submit"] {
+  background: linear-gradient(90deg, var(--section-primary) 60%, var(--section-secondary) 100%);
+  color: #fff;
+  border: none;
+  border-radius: 99px;
+  padding: 0.85em 2.2em;
+  font-size: 1.07rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  box-shadow: 0 2px 16px #6bdfdf66, 0 0.5px 2px #13334c33;
+  cursor: pointer;
+  transition: background 0.22s, box-shadow 0.19s, transform 0.1s;
+  margin-bottom: 0.8em;
+}
+section .aero-btn:hover,
+section button:hover,
+section input[type="button"]:hover,
+section input[type="submit"]:hover,
+section .aero-btn:focus,
+section button:focus,
+section input[type="button"]:focus,
+section input[type="submit"]:focus {
+  background: linear-gradient(90deg, var(--section-secondary) 40%, var(--section-primary) 100%);
+  box-shadow: 0 4px 32px #34b3f1bb;
+  transform: translateY(-2px) scale(1.03);
+}
+
+/* links */
+section a {
+  color: var(--section-link);
+  text-decoration: underline;
+  transition: color 0.16s;
+}
+section a:hover, section a:focus {
+  color: var(--section-link-hover);
+  text-decoration: underline;
+}
+
+/* lists*/
+section ul, section ol {
+  padding-left: 2em;
+  margin: 1.2em 0;
+  color: var(--section-text-sub);
+  font-size: 1.09em;
+  background: var(--section-list-bg);
+  border-radius: 14px;
+  box-shadow: 0 1px 6px #34b3f123;
+  backdrop-filter: blur(2px);
+}
+section ul {
+  list-style: none;
+  position: relative;
+}
+section ul li {
+  position: relative;
+  padding-left: 1.5em;
+  margin-bottom: 0.6em;
+}
+section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0.2em;
+  top: 0.7em;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+  background: var(--section-ul-bullet);
+  box-shadow: 0 2px 8px #34b3f166;
+  opacity: 0.9;
+}
+section ol {
+  counter-reset: aero-list;
+  list-style: none;
+  position: relative;
+}
+section ol li {
+  counter-increment: aero-list;
+  position: relative;
+  padding-left: 2em;
+  margin-bottom: 0.7em;
+}
+section ol li::before {
+  content: counter(aero-list) ".";
+  position: absolute;
+  left: 0.2em;
+  top: 0;
+  font-weight: bold;
+  color: var(--section-ol-number);
+  font-size: 1em;
+  text-shadow: 0 1px 6px #fff4;
+}
+
+/* Forms, Inputs, and Fields*/
+section input[type="text"],
+section input[type="email"],
+section input[type="password"],
+section input[type="search"],
+section input[type="url"],
+section textarea,
+section select {
+  font-family: var(--section-font);
+  font-size: 1em;
+  padding: 0.7em 1.1em;
+  border-radius: 16px;
+  border: 1.5px solid var(--section-table-th-border);
+  background: var(--section-card-bg);
+  color: var(--section-text-sub);
+  box-shadow: 0 2px 12px #6bdfdf22;
+  outline: none;
+  transition: border 0.18s, box-shadow 0.2s, background 0.2s;
+  margin-bottom: 1.2em;
+  width: 100%;
+  max-width: 420px;
+  box-sizing: border-box;
+}
+section input:focus,
+section textarea:focus,
+section select:focus {
+  border: 1.5px solid var(--section-primary);
+  background: #fff;
+  box-shadow: 0 4px 18px #34b3f155;
+}
+@media (prefers-color-scheme: dark) {
+  section input:focus,
+  section textarea:focus,
+  section select:focus {
+    background: #172c3d;
+  }
+}
+section input[type="checkbox"],
+section input[type="radio"] {
+  accent-color: var(--section-primary);
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: middle;
+  border-radius: 6px;
+  border: 1.5px solid var(--section-table-th-border);
+  background: var(--section-card-bg);
+  box-shadow: 0 1px 6px #6bdfdf33;
+  outline: none;
+  transition: border 0.18s;
+}
+section label {
+  color: var(--section-text-muted);
+  font-weight: 500;
+  font-size: 1em;
+  margin-right: 0.7em;
+  vertical-align: middle;
+}
+section textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+/* fieldset and legend*/
+section fieldset {
+  border: 2px solid var(--section-table-th-border);
+  border-radius: 18px;
+  background: var(--section-card-bg);
+  margin-bottom: 1.8em;
+  box-shadow: 0 2px 14px #34b3f133;
+  padding: 1.3em 1.4em;
+}
+section legend {
+  color: var(--section-primary);
+  font-weight: 700;
+  font-size: 1.1em;
+  padding: 0 0.8em;
+  background: #fff4;
+  border-radius: 11px;
+  box-shadow: 0 1px 6px #34b3f133;
+  margin-bottom: 0.7em;
+}
+@media (prefers-color-scheme: dark) {
+  section legend {
+    background: #14202b44;
+  }
+}
+
+/* tables */
+section table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  background: var(--section-table-bg);
+  box-shadow: 0 1px 10px #34b3f115;
+  border-radius: 18px;
+  overflow: hidden;
+  margin-bottom: 1.7em;
+}
+section th, section td {
+  padding: 0.85em 1.1em;
+  text-align: left;
+}
+section th {
+  background: var(--section-table-th-bg);
+  color: var(--section-text-sub);
+  font-weight: 700;
+  border-bottom: 2px solid var(--section-table-th-border);
+}
+section td {
+  color: var(--section-text-muted);
+  border-bottom: 1px solid var(--section-table-td-border);
+}
+section tr:last-child td {
+  border-bottom: none;
+}
+
+/* alerts/messages (might use this for annoucments) */
+section .aero-alert, section .aero-message {
+  background: var(--section-alert-bg);
+  border-left: 5px solid var(--section-alert-border);
+  color: var(--section-text-sub);
+  padding: 1em 1.5em;
+  border-radius: 11px;
+  box-shadow: 0 2px 10px #34b3f122;
+  margin: 1em 0;
+  font-size: 1.07em;
+}
+@media (prefers-color-scheme: dark) {
+  section .aero-alert, section .aero-message {
+    color: var(--section-text-main);
+  }
+}
+
+/* code blocks (probably NEVER going to use this but nice to have) */
+section pre, section code {
+  font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
+  background: var(--section-code-bg);
+  color: #1e5c7a;
+  border-radius: 9px;
+  padding: 0.35em 0.7em;
+  font-size: 0.96em;
+  border: 1px solid var(--section-code-border);
+}
+section pre {
+  overflow-x: auto;
+  margin-bottom: 1.1em;
+}
+@media (prefers-color-scheme: dark) {
+  section pre, section code {
+    color: #b7eaff;
+  }
+}
+
+/* --- HR --- */
+section hr {
+  border: none;
+  height: 2px;
+  background: var(--section-hr-bg);
+  border-radius: 8px;
+  margin: 2.2em 0 1.6em 0;
+}
+
+/* response */
+@media (max-width: 700px) {
+  section {
+    padding: 1.2em 0.5em;
+    max-width: 99vw;
+  }
+  section h1 { font-size: 2.1rem; }
+  section ul, section ol {
+    font-size: 1em;
+    padding-left: 1.2em;
+  }
+  section table, section th, section td {
+    font-size: 0.97em;
+  }
+  section input, section select, section textarea {
+    font-size: 1em;
+  }
+}
+
+/* bubbles (yk like the Windows Vista screensaver) */
+section .aero-bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--section-bubble);
+  box-shadow: 0 4px 32px 8px #a5f1e933;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatBubble 14s infinite ease-in-out alternate;
+}
+@keyframes floatBubble {
+  from { transform: translateY(0) scale(1);}
+  to   { transform: translateY(-40px) scale(1.08);}
+}
