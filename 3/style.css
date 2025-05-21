@@ -49,7 +49,7 @@
   --section-hr-bg: linear-gradient(90deg, #b7eaff 0%, #34b3f1 50%, #6bdfdf 100%);
 }
 
-@media (prefers-color-scheme: light) { /* sets it to light mode by defualt*/
+@media (prefers-color-scheme: dark) { /* IF it's set to dark mode */
   /* dark mode variables*/
   :root {
     --section-primary: #3bc6ff;
