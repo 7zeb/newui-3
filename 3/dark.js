@@ -90,20 +90,3 @@
         }
     });
 })();
-
-// Hide loader after page is loaded
-window.addEventListener('load', function() {
-  document.getElementById('page-loader').classList.add('hidden');
-});
-
-// Animate theme change
-function setTheme(theme) {
-  // Add transition class for smoothness
-  document.documentElement.classList.add('theme-transition');
-  document.documentElement.setAttribute('data-theme', theme);
-  // Remove class after animation time (match CSS, e.g. 650ms)
-  setTimeout(() => {
-    document.documentElement.classList.remove('theme-transition');
-  }, 650);
-}
-// Example: call setTheme('dark') or setTheme('light') when toggling
