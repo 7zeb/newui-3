@@ -3,51 +3,44 @@
 /* import segoe ui font*/
 @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;700&display=swap');
 
-/* page background */
+/* ---------- PAGE BACKGROUND (AERO) ---------- */
 html, body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
   font-family: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
-  background: var(--section-bg);
-  background-image: var(--section-bg-pattern);
-  background-blend-mode: var(--section-bg-blend);
+  /* FIX: Use a more visible blue-green Aero gradient */
+  background: linear-gradient(135deg, #b7eaff 0%, #7ad5f7 45%, #49e1c6 100%);
+  /* Remove or tone down white-heavy patterns */
+  /* background-image: none; */
+  background-blend-mode: normal;
   transition: background 0.6s;
 }
 
-/* light mode variables */
+/* ---------- VARIABLES FOR LIGHT MODE ---------- */
 :root {
   --section-primary: #34b3f1;
   --section-secondary: #6bdfdf;
   --section-accent: #f1f8ff;
-  --section-gradient1: #b7eaff;
-  --section-gradient2: #a2eee7;
-  --section-gradient3: #7ad5f7;
+  --section-gradient1: #7ad5f7;
+  --section-gradient2: #6bdfdf;
+  --section-gradient3: #b7eaff;
   --section-gradient4: #49e1c6;
-  --section-bubble: rgba(255,255,255,0.45);
+  --section-bubble: rgba(255,255,255,0.35);
   --section-card-shadow: 0 8px 24px rgba(52,179,241,0.14), 0 1.5px 6px rgba(0,0,0,0.06);
   --section-glass-blur: blur(13px);
   --section-radius: 22px;
   --section-font: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
-  --section-text-main: #13334c;
-  --section-text-sub: #176b8a;
-  --section-text-muted: #164d69;
-  --section-link: #1b5c87;
+  --section-text-main: #134364;
+  --section-text-sub: #207bb8;
+  --section-text-muted: #2178b5;
+  --section-link: #207bb8;
   --section-link-hover: #34b3f1;
-  --section-bg: linear-gradient(
-    135deg,
-    var(--section-gradient1) 0%,
-    #7fd1e8 30%,
-    var(--section-gradient2) 60%,
-    var(--section-gradient4) 100%
-  );
-  --section-bg-pattern:
-    radial-gradient(circle at 75% 20%, #ffffff33 0%, #b7eaff00 65%),
-    radial-gradient(circle at 20% 80%, #a2eee755 0%, #7ad5f700 65%),
-    radial-gradient(circle at 50% 50%, #ffffff22 0%, #49e1c600 80%);
-  --section-bg-blend: lighten;
+  --section-bg: linear-gradient(135deg, #b7eaff 0%, #7ad5f7 45%, #49e1c6 100%);
+  --section-bg-pattern: none;
+  --section-bg-blend: normal;
   --section-card-bg: linear-gradient(120deg, #f3fdff 85%, #e8fcfc 100%);
-  --section-list-bg: linear-gradient(90deg, #e5f7ffcc 60%, #f1f8ff99 100%);
+  --section-list-bg: #eaf7fc;
   --section-ul-bullet: linear-gradient(135deg, #6bdfdf 30%, #34b3f1 100%);
   --section-ol-number: #34b3f1;
   --section-table-bg: linear-gradient(100deg, #f6fdff 90%, #eafaff 100%);
@@ -61,7 +54,7 @@ html, body {
   --section-hr-bg: linear-gradient(90deg, #b7eaff 0%, #34b3f1 50%, #6bdfdf 100%);
 }
 
-/* dark mode variables */
+/* ---------- DARK MODE VARIABLES (TOGGLE VIA [data-theme="dark"]) ---------- */
 [data-theme="dark"] {
   --section-primary: #3bc6ff;
   --section-secondary: #5ae0e0;
@@ -80,20 +73,11 @@ html, body {
   --section-text-muted: #b7eaff;
   --section-link: #5ae0e0;
   --section-link-hover: #3bc6ff;
-  --section-bg: linear-gradient(
-    135deg,
-    var(--section-gradient1) 0%,
-    #1b5c7a 25%,
-    var(--section-gradient2) 55%,
-    var(--section-gradient4) 100%
-  );
-  --section-bg-pattern:
-    radial-gradient(circle at 75% 20%, #6eddf944 0%, #19354900 65%),
-    radial-gradient(circle at 20% 80%, #0e626d55 0%, #00756c00 65%),
-    radial-gradient(circle at 50% 50%, #fff2 0%, #00587000 80%);
-  --section-bg-blend: lighten;
+  --section-bg: linear-gradient(135deg, #193549 0%, #226c8b 55%, #00756c 100%);
+  --section-bg-pattern: none;
+  --section-bg-blend: normal;
   --section-card-bg: linear-gradient(120deg, #172c3d 85%, #223d46 100%);
-  --section-list-bg: linear-gradient(90deg, #193549cc 60%, #0e626d99 100%);
+  --section-list-bg: #172c3d;
   --section-ul-bullet: linear-gradient(135deg, #5ae0e0 30%, #3bc6ff 100%);
   --section-ol-number: #3bc6ff;
   --section-table-bg: linear-gradient(100deg, #11202c 90%, #0e626d 100%);
@@ -107,14 +91,83 @@ html, body {
   --section-hr-bg: linear-gradient(90deg, #193549 0%, #3bc6ff 50%, #5ae0e0 100%);
 }
 
-/* footer with aero style */
+/* ---------- NAVBAR (IMPROVED CONTRAST) ---------- */
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(210,240,255, 0.93);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--section-primary);
+  padding: 0.7em 2em 0.7em 1.2em;
+  box-shadow: 0 2px 18px #34b3f122;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-radius: 0 0 16px 16px;
+  margin-bottom: 1.2em;
+}
+
+[data-theme="dark"] .topnav {
+  background: rgba(24,40,56,0.96);
+  border-bottom: 2px solid var(--section-primary);
+  box-shadow: 0 2px 16px #00336622;
+}
+
+.topnav .nav-logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--section-primary);
+}
+.topnav .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+}
+.topnav a {
+  color: var(--section-link);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4em 1em;
+  border-radius: 9px;
+  transition: background 0.2s, color 0.2s;
+}
+.topnav a.active, .topnav a:hover {
+  background: var(--section-primary);
+  color: #fff;
+}
+[data-theme="dark"] .topnav a {
+  color: var(--section-link);
+}
+[data-theme="dark"] .topnav a.active,
+[data-theme="dark"] .topnav a:hover {
+  background: var(--section-primary);
+  color: #223d46;
+}
+.topnav button#dark-toggle-btn {
+  margin-left: 0.7em;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.6em;
+  color: var(--section-primary);
+  padding: 0.22em 0.6em;
+  border-radius: 12px;
+  transition: background 0.2s;
+}
+.topnav button#dark-toggle-btn:hover,
+.topnav button#dark-toggle-btn:focus {
+  background: var(--section-accent);
+}
+
+/* ---------- FOOTER (VISIBLE IN LIGHT AND DARK) ---------- */
 footer {
   font-family: var(--section-font);
   color: var(--section-text-muted);
-  background: rgba(255,255,255,0.70);
-  backdrop-filter: blur(8px) saturate(120%);
+  background: rgba(240,250,255,0.95);
   border-top: 2px solid var(--section-primary);
-  padding: 2em 1em 1.2em 1em;
+  padding: 1.3em 1em 1.2em 1em;
   margin-top: 3em;
   border-radius: 18px 18px 0 0;
   box-shadow: 0 -2px 18px #34b3f122;
@@ -123,7 +176,13 @@ footer {
   transition: background 0.4s, color 0.4s;
 }
 
-/* Footer links */
+[data-theme="dark"] footer {
+  background: rgba(24,40,56,0.97);
+  border-top: 2px solid var(--section-primary);
+  color: var(--section-text-main);
+  box-shadow: 0 -2px 16px #00336622;
+}
+
 footer a {
   color: var(--section-link);
   text-decoration: underline;
@@ -133,171 +192,12 @@ footer a:hover, footer a:focus {
   color: var(--section-link-hover);
 }
 
-/* dark mode footer */
-[data-theme="dark"] footer {
-  background: rgba(24,40,56,0.92);
-  border-top: 2px solid var(--section-primary);
-  color: var(--section-text-main);
-  box-shadow: 0 -2px 16px #00336622;
-}
-
-/* navbar work please - */
-.topnav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: rgba(230,245,255,0.85);
-  backdrop-filter: blur(8px);
-  border-bottom: 1.5px solid var(--section-primary);
-  padding: 0.6em 2.5em 0.6em 1.2em;
-  box-shadow: 0 2px 16px #34b3f112;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-radius: 0 0 18px 18px;
-  margin-bottom: 1.2em;
-}
-[data-theme="dark"] .topnav {
-  background: rgba(24,40,56,0.92);
-  border-bottom: 1.5px solid var(--section-primary);
-  box-shadow: 0 2px 16px #00336622;
-}
-.topnav .nav-logo {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: var(--section-primary);
-}
-[data-theme="dark"] .topnav .nav-logo {
-  color: var(--section-primary);
-}
-.topnav .nav-links {
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-.topnav a {
-  color: var(--section-link);
-  text-decoration: none;
-  font-weight: 500;
-  padding: 0.4em 1em;
-  border-radius: 10px;
-  transition: background 0.2s, color 0.2s;
-}
-.topnav a.active, .topnav a:hover {
-  background: var(--section-accent);
-  color: var(--section-primary);
-}
-[data-theme="dark"] .topnav a {
-  color: var(--section-link);
-}
-[data-theme="dark"] .topnav a.active,
-[data-theme="dark"] .topnav a:hover {
-  background: var(--section-accent);
-  color: var(--section-primary);
-}
-
-/* variables for light mode*/
-:root {
-  --section-primary: #34b3f1;
-  --section-secondary: #6bdfdf;
-  --section-accent: #f1f8ff;
-  --section-gradient1: #b7eaff;
-  --section-gradient2: #a2eee7;
-  --section-gradient3: #7ad5f7;
-  --section-gradient4: #49e1c6;
-  --section-bubble: rgba(255,255,255,0.45);
-  --section-card-shadow: 0 8px 24px rgba(52,179,241,0.14), 0 1.5px 6px rgba(0,0,0,0.06);
-  --section-glass-blur: blur(13px);
-  --section-radius: 22px;
-  --section-font: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
-  --section-text-main: #13334c;
-  --section-text-sub: #176b8a;
-  --section-text-muted: #164d69;
-  --section-link: #1b5c87;
-  --section-link-hover: #34b3f1;
-  --section-bg: linear-gradient(
-    135deg,
-    var(--section-gradient1) 0%,
-    #7fd1e8 30%,
-    var(--section-gradient2) 60%,
-    var(--section-gradient4) 100%
-  );
-  --section-bg-pattern:
-    radial-gradient(circle at 75% 20%, #ffffff33 0%, #b7eaff00 65%),
-    radial-gradient(circle at 20% 80%, #a2eee755 0%, #7ad5f700 65%),
-    radial-gradient(circle at 50% 50%, #ffffff22 0%, #49e1c600 80%);
-  --section-bg-blend: lighten;
-  --section-card-bg: linear-gradient(120deg, #f3fdff 85%, #e8fcfc 100%);
-  --section-list-bg: linear-gradient(90deg, #e5f7ffcc 60%, #f1f8ff99 100%);
-  --section-ul-bullet: linear-gradient(135deg, #6bdfdf 30%, #34b3f1 100%);
-  --section-ol-number: #34b3f1;
-  --section-table-bg: linear-gradient(100deg, #f6fdff 90%, #eafaff 100%);
-  --section-table-th-bg: linear-gradient(90deg, #eafaff 60%, #b7eaff 100%);
-  --section-table-th-border: #a2eee7;
-  --section-table-td-border: #e8fcfc88;
-  --section-alert-bg: linear-gradient(90deg, #ffe 80%, #eafaff 100%);
-  --section-alert-border: #34b3f1;
-  --section-code-bg: linear-gradient(120deg, #eafaff 80%, #f7ffff 100%);
-  --section-code-border: #b7eaff88;
-  --section-hr-bg: linear-gradient(90deg, #b7eaff 0%, #34b3f1 50%, #6bdfdf 100%);
-}
-
-@media (prefers-color-scheme: dark) { /* IF it's set to dark mode */
-  /* dark mode variables*/
-  :root {
-    --section-primary: #3bc6ff;
-    --section-secondary: #5ae0e0;
-    --section-accent: #14202b;
-    --section-gradient1: #193549;
-    --section-gradient2: #0e626d;
-    --section-gradient3: #226c8b;
-    --section-gradient4: #00756c;
-    --section-bubble: rgba(255,255,255,0.08);
-    --section-card-shadow: 0 8px 24px rgba(0,0,0,0.44), 0 1.5px 6px rgba(52,179,241,0.05);
-    --section-glass-blur: blur(13px);
-    --section-radius: 22px;
-    --section-font: 'Segoe UI', 'Frutiger', 'Arial', sans-serif;
-    --section-text-main: #e3f8ff;
-    --section-text-sub: #81e6ff;
-    --section-text-muted: #b7eaff;
-    --section-link: #5ae0e0;
-    --section-link-hover: #3bc6ff;
-    --section-bg: linear-gradient(
-      135deg,
-      var(--section-gradient1) 0%,
-      #1b5c7a 25%,
-      var(--section-gradient2) 55%,
-      var(--section-gradient4) 100%
-    );
-    --section-bg-pattern:
-      radial-gradient(circle at 75% 20%, #6eddf944 0%, #19354900 65%),
-      radial-gradient(circle at 20% 80%, #0e626d55 0%, #00756c00 65%),
-      radial-gradient(circle at 50% 50%, #fff2 0%, #00587000 80%);
-    --section-bg-blend: lighten;
-    --section-card-bg: linear-gradient(120deg, #172c3d 85%, #223d46 100%);
-    --section-list-bg: linear-gradient(90deg, #193549cc 60%, #0e626d99 100%);
-    --section-ul-bullet: linear-gradient(135deg, #5ae0e0 30%, #3bc6ff 100%);
-    --section-ol-number: #3bc6ff;
-    --section-table-bg: linear-gradient(100deg, #11202c 90%, #0e626d 100%);
-    --section-table-th-bg: linear-gradient(90deg, #193549 60%, #0e626d 100%);
-    --section-table-th-border: #226c8b;
-    --section-table-td-border: #19354988;
-    --section-alert-bg: linear-gradient(90deg, #193549 80%, #1b5c7a 100%);
-    --section-alert-border: #3bc6ff;
-    --section-code-bg: linear-gradient(120deg, #0e1f2a 80%, #0e626d 100%);
-    --section-code-border: #0e626d88;
-    --section-hr-bg: linear-gradient(90deg, #193549 0%, #3bc6ff 50%, #5ae0e0 100%);
-  }
-}
-
-/* the sections */
+/* ---------- SECTIONS & CARDS ---------- */
 section {
   box-sizing: border-box;
   font-family: var(--section-font);
   color: var(--section-text-main);
-  background: var(--section-bg);
-  background-image: var(--section-bg-pattern);
-  background-blend-mode: var(--section-bg-blend);
+  background: var(--section-card-bg);
   margin: 2em auto;
   padding: 2.3em 1.8em;
   border-radius: var(--section-radius);
@@ -305,33 +205,9 @@ section {
   max-width: 1100px;
   position: relative;
   overflow: hidden;
+  /* Remove conflicting background-image/blend */
 }
 
-/* Section Headings */
-section h1, section h2, section h3, section h4, section h5, section h6 {
-  color: var(--section-primary);
-  text-shadow: 0 2px 12px #fff7, 0 1px 4px #6bdfdf88;
-  font-weight: 700;
-  letter-spacing: 0.013em;
-  margin-top: 0.4em;
-  margin-bottom: 0.7em;
-}
-section h1 { font-size: 2.5rem; }
-section h2 { font-size: 1.85rem; }
-section h3 { font-size: 1.5rem; }
-section h4 { font-size: 1.28rem; }
-section h5 { font-size: 1.1rem; }
-section h6 { font-size: 1rem; }
-
-/* Section Paragraphs */
-section p {
-  line-height: 1.62;
-  color: var(--section-text-sub);
-  margin-bottom: 1.25em;
-  font-size: 1.11em;
-}
-
-/* cards inside of sections */
 section .aero-glass, section .card, section .project-card {
   background: var(--section-card-bg);
   box-shadow: var(--section-card-shadow);
@@ -349,7 +225,31 @@ section .aero-glass:hover, section .card:hover, section .project-card:hover {
   box-shadow: 0 12px 50px #34b3f1bb;
 }
 
-/* buttons */
+/* ---------- SECTION HEADINGS (STRONGER CONTRAST) ---------- */
+section h1, section h2, section h3, section h4, section h5, section h6 {
+  color: var(--section-primary);
+  text-shadow: 0 1px 5px #b7eaff66;
+  font-weight: 700;
+  letter-spacing: 0.013em;
+  margin-top: 0.4em;
+  margin-bottom: 0.7em;
+}
+section h1 { font-size: 2.5rem; }
+section h2 { font-size: 1.85rem; }
+section h3 { font-size: 1.5rem; }
+section h4 { font-size: 1.28rem; }
+section h5 { font-size: 1.1rem; }
+section h6 { font-size: 1rem; }
+
+/* ---------- SECTION TEXT ---------- */
+section p {
+  line-height: 1.62;
+  color: var(--section-text-sub);
+  margin-bottom: 1.25em;
+  font-size: 1.13em;
+}
+
+/* ---------- BUTTONS ---------- */
 section .aero-btn,
 section button,
 section input[type="button"],
@@ -359,7 +259,7 @@ section input[type="submit"] {
   border: none;
   border-radius: 99px;
   padding: 0.85em 2.2em;
-  font-size: 1.07rem;
+  font-size: 1.08rem;
   font-weight: 600;
   letter-spacing: 0.03em;
   box-shadow: 0 2px 16px #6bdfdf66, 0 0.5px 2px #13334c33;
@@ -380,7 +280,7 @@ section input[type="submit"]:focus {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* links */
+/* ---------- LINKS ---------- */
 section a {
   color: var(--section-link);
   text-decoration: underline;
@@ -391,215 +291,62 @@ section a:hover, section a:focus {
   text-decoration: underline;
 }
 
-/* lists*/
+/* ---------- LISTS (FIXED) ---------- */
 section ul, section ol {
-  padding-left: 2em;
-  margin: 1.2em 0;
-  color: var(--section-text-sub);
-  font-size: 1.09em;
+  padding-left: 1.7em;
+  margin: 1.15em 0;
   background: var(--section-list-bg);
-  border-radius: 14px;
-  box-shadow: 0 1px 6px #34b3f123;
-  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px #34b3f111;
+  backdrop-filter: blur(1.5px);
 }
+
 section ul {
   list-style: none;
-  position: relative;
 }
 section ul li {
   position: relative;
-  padding-left: 1.5em;
-  margin-bottom: 0.6em;
+  padding-left: 1.8em; /* gives more space for bullet */
+  margin-bottom: 0.5em;
+  color: var(--section-text-main);
+  line-height: 1.6; /* ensures good vertical spacing */
 }
 section ul li::before {
   content: '';
   position: absolute;
-  left: 0.2em;
-  top: 0.7em;
-  width: 0.8em;
-  height: 0.8em;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
   background: var(--section-ul-bullet);
-  box-shadow: 0 2px 8px #34b3f166;
-  opacity: 0.9;
+  box-shadow: 0 1px 4px #34b3f166;
+  opacity: 1;
 }
 section ol {
   counter-reset: aero-list;
   list-style: none;
-  position: relative;
 }
 section ol li {
   counter-increment: aero-list;
   position: relative;
   padding-left: 2em;
-  margin-bottom: 0.7em;
+  margin-bottom: 0.5em;
+  color: var(--section-text-main);
 }
 section ol li::before {
   content: counter(aero-list) ".";
   position: absolute;
-  left: 0.2em;
+  left: 0.15em;
   top: 0;
   font-weight: bold;
   color: var(--section-ol-number);
   font-size: 1em;
-  text-shadow: 0 1px 6px #fff4;
+  text-shadow: 0 1px 3px #fff5;
 }
 
-/* Forms, Inputs, and Fields*/
-section input[type="text"],
-section input[type="email"],
-section input[type="password"],
-section input[type="search"],
-section input[type="url"],
-section textarea,
-section select {
-  font-family: var(--section-font);
-  font-size: 1em;
-  padding: 0.7em 1.1em;
-  border-radius: 16px;
-  border: 1.5px solid var(--section-table-th-border);
-  background: var(--section-card-bg);
-  color: var(--section-text-sub);
-  box-shadow: 0 2px 12px #6bdfdf22;
-  outline: none;
-  transition: border 0.18s, box-shadow 0.2s, background 0.2s;
-  margin-bottom: 1.2em;
-  width: 100%;
-  max-width: 420px;
-  box-sizing: border-box;
-}
-section input:focus,
-section textarea:focus,
-section select:focus {
-  border: 1.5px solid var(--section-primary);
-  background: #fff;
-  box-shadow: 0 4px 18px #34b3f155;
-}
-@media (prefers-color-scheme: dark) {
-  section input:focus,
-  section textarea:focus,
-  section select:focus {
-    background: #172c3d;
-  }
-}
-section input[type="checkbox"],
-section input[type="radio"] {
-  accent-color: var(--section-primary);
-  width: 1.1em;
-  height: 1.1em;
-  margin-right: 0.4em;
-  vertical-align: middle;
-  border-radius: 6px;
-  border: 1.5px solid var(--section-table-th-border);
-  background: var(--section-card-bg);
-  box-shadow: 0 1px 6px #6bdfdf33;
-  outline: none;
-  transition: border 0.18s;
-}
-section label {
-  color: var(--section-text-muted);
-  font-weight: 500;
-  font-size: 1em;
-  margin-right: 0.7em;
-  vertical-align: middle;
-}
-section textarea {
-  min-height: 90px;
-  resize: vertical;
-}
-
-/* fieldset and legend*/
-section fieldset {
-  border: 2px solid var(--section-table-th-border);
-  border-radius: 18px;
-  background: var(--section-card-bg);
-  margin-bottom: 1.8em;
-  box-shadow: 0 2px 14px #34b3f133;
-  padding: 1.3em 1.4em;
-}
-section legend {
-  color: var(--section-primary);
-  font-weight: 700;
-  font-size: 1.1em;
-  padding: 0 0.8em;
-  background: #fff4;
-  border-radius: 11px;
-  box-shadow: 0 1px 6px #34b3f133;
-  margin-bottom: 0.7em;
-}
-@media (prefers-color-scheme: dark) {
-  section legend {
-    background: #14202b44;
-  }
-}
-
-/* tables */
-section table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-  background: var(--section-table-bg);
-  box-shadow: 0 1px 10px #34b3f115;
-  border-radius: 18px;
-  overflow: hidden;
-  margin-bottom: 1.7em;
-}
-section th, section td {
-  padding: 0.85em 1.1em;
-  text-align: left;
-}
-section th {
-  background: var(--section-table-th-bg);
-  color: var(--section-text-sub);
-  font-weight: 700;
-  border-bottom: 2px solid var(--section-table-th-border);
-}
-section td {
-  color: var(--section-text-muted);
-  border-bottom: 1px solid var(--section-table-td-border);
-}
-section tr:last-child td {
-  border-bottom: none;
-}
-
-/* alerts/messages (might use this for annoucments) */
-section .aero-alert, section .aero-message {
-  background: var(--section-alert-bg);
-  border-left: 5px solid var(--section-alert-border);
-  color: var(--section-text-sub);
-  padding: 1em 1.5em;
-  border-radius: 11px;
-  box-shadow: 0 2px 10px #34b3f122;
-  margin: 1em 0;
-  font-size: 1.07em;
-}
-@media (prefers-color-scheme: dark) {
-  section .aero-alert, section .aero-message {
-    color: var(--section-text-main);
-  }
-}
-
-/* code blocks (probably NEVER going to use this but nice to have) */
-section pre, section code {
-  font-family: 'JetBrains Mono', 'Fira Mono', 'Consolas', monospace;
-  background: var(--section-code-bg);
-  color: #1e5c7a;
-  border-radius: 9px;
-  padding: 0.35em 0.7em;
-  font-size: 0.96em;
-  border: 1px solid var(--section-code-border);
-}
-section pre {
-  overflow-x: auto;
-  margin-bottom: 1.1em;
-}
-@media (prefers-color-scheme: dark) {
-  section pre, section code {
-    color: #b7eaff;
-  }
-}
-
-/* --- HR --- */
+/* ---------- HR ---------- */
 section hr {
   border: none;
   height: 2px;
@@ -608,7 +355,7 @@ section hr {
   margin: 2.2em 0 1.6em 0;
 }
 
-/* response */
+/* ---------- RESPONSIVE ---------- */
 @media (max-width: 700px) {
   section {
     padding: 1.2em 0.5em;
@@ -617,7 +364,7 @@ section hr {
   section h1 { font-size: 2.1rem; }
   section ul, section ol {
     font-size: 1em;
-    padding-left: 1.2em;
+    padding-left: 1.1em;
   }
   section table, section th, section td {
     font-size: 0.97em;
@@ -627,7 +374,7 @@ section hr {
   }
 }
 
-/* bubbles (yk like the Windows Vista screensaver) */
+/* ---------- VISTA BUBBLES (UNCHANGED) ---------- */
 section .aero-bubble {
   position: absolute;
   border-radius: 50%;
